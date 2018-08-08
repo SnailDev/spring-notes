@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>用户列表</title>
+    <!--<link href="/css/main.css" rel="stylesheet"/>-->
+    <link href="../../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+    <h1 th:text="${hello}">Hello, Spring Boot!</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>生日</th>
+            <th>性别</th>
+        </tr>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.id}">0</td>
+            <td th:text="${user.username}">zhangsan</td>
+            <td th:text="${user.birthday}">1988-06-06</td>
+            <td th:text="${user.sex}">1</td>
+        </tr>
+    </table>
+
+    <select>
+        <option th:each="user:${userList}" th:value="${user.id}" th:text="${user.username}">我是默认值</option>
+    </select>
+</body>
+</html>
